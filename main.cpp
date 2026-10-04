@@ -23,7 +23,7 @@
 // Electromagnet PWM settings
 #define MAGNET_PWM_FREQUENCY 5000
 #define MAGNET_PWM_RESOLUTION 8
-#define MAGNET_MAX_OUTPUT 230
+#define MAGNET_MAX_OUTPUT 242
 
 // Electromagnet PWM channels
 #define MAGNET_LOW_CHANNEL 0
@@ -234,9 +234,9 @@ void processFFT(int32_t audioSamples[]) {
   }
 
   // Convert each raw frequency level into 0 to 255 control value
-  int lowOutput = normalizeLevel(lowLevel, 1500000, 12000000);
+  int lowOutput = normalizeLevel(lowLevel, 1500000, 13000000);
   int midOutput = normalizeLevel(midLevel, 300000, 12000000);
-  int highOutput = normalizeLevel(highLevel, 100000, 6500000);
+  int highOutput = normalizeLevel(highLevel, 100000, 5500000);
         
   // Send normalized frequency levels to electromagnets
   controlMagnets(lowOutput, midOutput, highOutput);
